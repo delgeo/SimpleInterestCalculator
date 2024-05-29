@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleInterestCalculator.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="BackgroundColorStart">#77A1D3</Color>
+            <Color x:Key="BackgroundColorMid">#E684AE</Color>
+            <Color x:Key="BackgroundColorEnd">#79CBCA</Color>
+            <LinearGradientBrush x:Key="BackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{StaticResource BackgroundColorStart}" Offset="0.0" />
+                <GradientStop Color="{StaticResource BackgroundColorMid}" Offset="0.5" />
+                <GradientStop Color="{StaticResource BackgroundColorEnd}" Offset="1.0" />
+            </LinearGradientBrush>
+            <Style TargetType="Entry" x:Key="EntryStyle">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="PlaceholderColor" Value="#808080" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+            <Style TargetType="Frame" x:Key="FrameStyle">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="0,0,0,10" />
+            </Style>
+            <Style TargetType="Button" x:Key="ButtonStyle">
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="0,0,0,10" />
+                <Setter Property="TextColor" Value="DarkBlue" />
+                <Setter Property="FontFamily" Value="serif-monospace" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="25" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Background="{StaticResource BackgroundBrush}" Padding="20"  Spacing="30">
+        <Label Text="Simple Interest Calculator" FontSize="35" FontAttributes="Bold"  TextColor="DarkBlue" HorizontalOptions="Center" Margin="0,20,0,20" FontFamily="cursive" />
+
+        <StackLayout Spacing="10">
+            <Label TextColor="DarkBlue" Text="Principal" FontSize="Medium" />
+            <Frame Style="{StaticResource FrameStyle}">
+                <Entry x:Name="principalEntry" Placeholder="Amount in $" Style="{StaticResource EntryStyle}" />
+            </Frame>
+            <Label TextColor="DarkBlue" Text="Rate of Interest" FontSize="Medium" />
+            <Frame Style="{StaticResource FrameStyle}">
+                <Entry x:Name="rateEntry" Placeholder="%" Style="{StaticResource EntryStyle}" />
+            </Frame>
+            <Label TextColor="DarkBlue" Text="Time" FontSize="Medium" />
+            <Frame Style="{StaticResource FrameStyle}">
+                <Entry x:Name="timeEntry" Placeholder="No. of years" Style="{StaticResource EntryStyle}" />
+            </Frame>
+
+            <Button Style="{StaticResource ButtonStyle}" Text="Calculate" Clicked="Calculate_Clicked" HorizontalOptions="Center" Margin="0,0,0,10" BorderColor="Black" BorderWidth="1">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#DF596C" Offset="0.1" />
+                        <GradientStop Color="#FFB239" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <Label x:Name="resultLabel" TextColor="WhiteSmoke" BackgroundColor="DarkBlue"
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                       FontSize="Medium" />
+        </StackLayout>
+        <Button Style="{StaticResource ButtonStyle}" Text="Reset" Clicked="Reset_Clicked" HorizontalOptions="Center" Margin="0,0,0,10" BorderColor="Black" BorderWidth="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="1,0">
+                    <GradientStop Color="#DF596C" Offset="0.1" />
+                    <GradientStop Color="#FFB239" Offset="1.0" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+     </StackLayout>
+</ContentPage>
